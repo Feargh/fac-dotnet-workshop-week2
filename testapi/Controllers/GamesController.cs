@@ -1,4 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using testapi.Data;
+using testapi.Models;
 
 namespace testapi.Controllers;
 
@@ -7,20 +10,21 @@ namespace testapi.Controllers;
 
 public class GamesController : ControllerBase
 {
-    private static List<Game> games;
 
-// demo has this bellow methods  I cant imagine why thoe order would matter though keep it in mind
-   public class Game{
-        public int id { get; set; }
-        public string? teamOneName { get; set; }
-        public string? teamTwoName { get; set; }
-        public int winner { get; set; } 
 
-   } 
-    List<Game> PopulateGames(){
-        return new List<Game>
-        {
-            new Game{
+    
+    private readonly ILogger<GamesController> _logger;
+    private readonly GamesDbContext _context;
+
+    public GamesController(GamesDbContext context, ILogger<GamesController> logger)
+    {
+         _context = context;
+        _logger = logger;
+        if (!_context.Games.Any())
+            {
+                _context.Games.AddRange(new List<Game>
+                {
+                    new Game{
                id = 1,
                teamOneName="London",
                teamTwoName="Cardif",
@@ -38,34 +42,35 @@ public class GamesController : ControllerBase
                teamTwoName="Manchester",
                winner =1  
             },
-        };
-    }
-
-    private readonly ILogger<GamesController> _logger;
-
-    public GamesController(ILogger<GamesController> logger)
-    {
-        games = PopulateGames();
-        _logger = logger;
+                });
+                _context.SaveChanges();
+            }
     }
 
     [HttpGet(Name = "GetGames")]
-    public IEnumerable<Game> Get()
+        public async Task<ActionResult<IEnumerable<Game>>> GetGames()
     {
-        return games;
+            return await _context.Games.ToListAsync();
     }
     
-        [HttpDelete("{id}", Name = "DeleteEmployee")]
-        public IEnumerable<Game> Delete([FromRoute] int id)
+         [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteGame(int id)
         {
-            var game = games.FirstOrDefault(x => x.id == id);
-            if (game != null) games.Remove(game);
-            return games;
+            var game = await _context.Games.FindAsync(id);
+            if (game == null)
+            {
+                return NotFound();
+            }
+
+            _context.Games.Remove(game);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
-                [HttpPost]
-        public IEnumerable<Game>  AddEmployee([FromBody] Game game)
-        {
-            games.Add(game);
-            return games;
-        }
+        //         [HttpPost]
+        // public IEnumerable<Game>  AddEmployee([FromBody] Game game)
+        // {
+        //     games.Add(game);
+        //     return games;
+        // }
 }
