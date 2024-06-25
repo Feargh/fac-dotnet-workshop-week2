@@ -67,10 +67,20 @@ public class GamesController : ControllerBase
 
             return NoContent();
         }
-        //         [HttpPost]
-        // public IEnumerable<Game>  AddEmployee([FromBody] Game game)
-        // {
-        //     games.Add(game);
-        //     return games;
-        // }
+                [HttpPost]
+
+        public async Task<ActionResult<Game>> PostGame([FromBody] Game game)
+        {
+            if (game == null)
+            {
+                return BadRequest();
+            }
+
+            _context.Games.Add(game);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetGames), new { id = game.id }, game);
+        }
+    
+   
 }

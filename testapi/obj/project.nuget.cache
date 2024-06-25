@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "InC+6reCz+4=",
+  "dgSpecHash": "tQWrRm+8y+8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\sarah\\Desktop\\programing\\dotnetAPI\\testapi\\testapi.csproj",
+  "projectFilePath": "C:\\Users\\sarah\\Desktop\\programing\\DOTNET-Workshop-Two\\testapi\\testapi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sarah\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\sarah\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

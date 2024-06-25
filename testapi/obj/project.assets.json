@@ -4845,11 +4845,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sarah\\Desktop\\programing\\dotnetAPI\\testapi\\testapi.csproj",
+      "projectUniqueName": "C:\\Users\\sarah\\Desktop\\programing\\DOTNET-Workshop-Two\\testapi\\testapi.csproj",
       "projectName": "testapi",
-      "projectPath": "C:\\Users\\sarah\\Desktop\\programing\\dotnetAPI\\testapi\\testapi.csproj",
+      "projectPath": "C:\\Users\\sarah\\Desktop\\programing\\DOTNET-Workshop-Two\\testapi\\testapi.csproj",
       "packagesPath": "C:\\Users\\sarah\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sarah\\Desktop\\programing\\dotnetAPI\\testapi\\obj\\",
+      "outputPath": "C:\\Users\\sarah\\Desktop\\programing\\DOTNET-Workshop-Two\\testapi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\sarah\\AppData\\Roaming\\NuGet\\NuGet.Config"
