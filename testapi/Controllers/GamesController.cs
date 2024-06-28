@@ -13,13 +13,11 @@ public class GamesController : ControllerBase
 
 
     
-    private readonly ILogger<GamesController> _logger;
     private readonly GamesDbContext _context;
 
-    public GamesController(GamesDbContext context, ILogger<GamesController> logger)
+    public GamesController(GamesDbContext context)
     {
          _context = context;
-        _logger = logger;
         if (!_context.Games.Any())
             {
                 _context.Games.AddRange(new List<Game>
