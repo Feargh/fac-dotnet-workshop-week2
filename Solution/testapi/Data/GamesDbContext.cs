@@ -3,7 +3,7 @@ using testapi.Models;
 
 namespace testapi.Data
 {
-    public class GamesDbContext : DbContext
+    public class GamesDbContext : DbContext, iGamesDbContext
     {
         public GamesDbContext(DbContextOptions<GamesDbContext> options) : base(options)
         {
