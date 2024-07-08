@@ -1,4 +1,8 @@
-﻿# ASP.NET Challenge
+﻿# FAC-DOTNET-Workshop-Week2
+
+Link here [ASP.NET Challenge](https://github.com/foundersandcoders/DOTNET-Workshop)
+
+# ASP.NET Challenge
 
 Practice using ASP.NET to create and manage routes in a web application.
 
@@ -16,7 +20,6 @@ This app already has a working API but the file that should test the games contr
 
 run dotnet test and if everything is good the tests should pass
 
-
 ## Challenge 1: Test the get request method
 
-Set up a interface and moq to allow the tests to run tests on the functions without altering your database. The original project should also still be able to run. This is complicated enough that one challenge is enough. 
+Set up a interface and moq to allow the tests to run tests on the functions without altering your database. The original project should also still be able to run. This is complicated enough that one challenge is enough.
